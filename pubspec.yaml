@@ -11,8 +11,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_cache_manager: ^3.3.1
-  just_audio: ^0.9.37
+  just_audio: ^0.9.43
   syncfusion_flutter_sliders: ^27.1.57
+
+dependency_overrides:
+  win32: ^5.5.4
 
 dev_dependencies:
   flutter_test:

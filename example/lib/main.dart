@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
                     VoiceMessageView(
                       controller: VoiceController(
                         audioSrc:
-                            'https://dl.solahangs.com/Music/1403/02/H/128/Hiphopologist%20-%20Shakkak%20%28128%29.mp3',
+                            'https://go.cdn.revotour.uz/filestorage/chat_audio/2025-01-26-00-27_1737833284913756134.m4a',
                         maxDuration: const Duration(seconds: 10),
                         isFile: false,
                         onComplete: () {

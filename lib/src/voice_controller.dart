@@ -43,7 +43,6 @@ class VoiceController extends MyTicker {
   final bool isFile;
   final String? cacheKey;
   PlayStatus playStatus = PlayStatus.init;
-  PlaySpeed speed = PlaySpeed.x1;
   ValueNotifier updater = ValueNotifier(null);
   List<double>? randoms;
   StreamSubscription? positionStream;
@@ -171,13 +170,13 @@ class VoiceController extends MyTicker {
 
   /// Starts playing the voice.
   Future startPlaying(String path) async {
-    // Uri audioUri = isFile ? Uri.file(audioSrc) : Uri.parse(audioSrc);
+    Uri audioUri = isFile ? Uri.file(audioSrc) : Uri.parse(audioSrc);
     await _player.setAudioSource(
-      AudioSource.uri(Uri.file(path)),
+      AudioSource.uri(audioUri),
       initialPosition: currentDuration,
     );
     _player.play();
-    _player.setSpeed(speed.getSpeed);
+    // _player.setSpeed(speed.getSpeed);
   }
 
   Future<void> dispose() async {
@@ -244,31 +243,31 @@ class VoiceController extends MyTicker {
   }
 
   /// Changes the speed of the voice playback.
-  void changeSpeed() {
-    // Function implementation goes here
-    switch (speed) {
-      case PlaySpeed.x1:
-        speed = PlaySpeed.x1_25;
-        break;
-      case PlaySpeed.x1_25:
-        speed = PlaySpeed.x1_5;
-        break;
-      case PlaySpeed.x1_5:
-        speed = PlaySpeed.x1_75;
-        break;
-      case PlaySpeed.x1_75:
-        speed = PlaySpeed.x2;
-        break;
-      case PlaySpeed.x2:
-        speed = PlaySpeed.x2_25;
-        break;
-      case PlaySpeed.x2_25:
-        speed = PlaySpeed.x1;
-        break;
-    }
-    _player.setSpeed(speed.getSpeed);
-    _updateUi();
-  }
+  // void changeSpeed() {
+  //   // Function implementation goes here
+  //   switch (speed) {
+  //     case PlaySpeed.x1:
+  //       speed = PlaySpeed.x1_25;
+  //       break;
+  //     case PlaySpeed.x1_25:
+  //       speed = PlaySpeed.x1_5;
+  //       break;
+  //     case PlaySpeed.x1_5:
+  //       speed = PlaySpeed.x1_75;
+  //       break;
+  //     case PlaySpeed.x1_75:
+  //       speed = PlaySpeed.x2;
+  //       break;
+  //     case PlaySpeed.x2:
+  //       speed = PlaySpeed.x2_25;
+  //       break;
+  //     case PlaySpeed.x2_25:
+  //       speed = PlaySpeed.x1;
+  //       break;
+  //   }
+  //   _player.setSpeed(speed.getSpeed);
+  //   _updateUi();
+  // }
 
   /// Changes the speed of the voice playback.
   void onChangeSliderStart(double value) {
